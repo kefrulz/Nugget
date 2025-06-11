@@ -286,7 +286,7 @@ class MainWindow(QtWidgets.QMainWindow):
             if not patched and device_ver >= Version("17.4") and (device_ver <= Version("17.7") or device_ver >= Version("18.1")):
                 self.ui.euEnablerPageBtn.show()
             else:
-                self.ui.euEnablerPageBtn.hide()
+                self.ui.euEnablerPageBtn.show()
             
             # hide the ai content if not on
             if device_ver >= Version("18.1") and not tweaks["AIGestalt"].enabled:
