@@ -147,9 +147,9 @@ class MainWindow(QtWidgets.QMainWindow):
             # hide all pages
             self.ui.sidebarDiv1.hide()
 
-            self.ui.gestaltPageBtn.hide()
+            self.ui.gestaltPageBtn.show()
             self.ui.featureFlagsPageBtn.hide()
-            self.ui.euEnablerPageBtn.hide()
+            self.ui.euEnablerPageBtn.show()
             self.ui.springboardOptionsPageBtn.hide()
             self.ui.internalOptionsPageBtn.hide()
             self.ui.daemonsPageBtn.hide()
@@ -228,7 +228,7 @@ class MainWindow(QtWidgets.QMainWindow):
             }
             MaxTweakVersions = {
                 "patch": [self.ui.revertRdarChk, self.ui.revertRdarLine],
-                "17.7": [self.ui.euEnablerContent],
+                "30.7": [self.ui.euEnablerContent],
                 "18.0": [self.ui.photosChk, self.ui.aiChk]
             }
 
@@ -248,7 +248,7 @@ class MainWindow(QtWidgets.QMainWindow):
                         if self.device_manager.data_singleton.current_device.has_exploit() and device_ver >= Version(pair[0]):
                             pair[1].show()
                         else:
-                            pair[1].hide()
+                            pair[1].show()
                 elif version == "no_patch":
                     # hide patched version items
                     for view in MinTweakVersions[version]:
@@ -290,7 +290,7 @@ class MainWindow(QtWidgets.QMainWindow):
             
             # hide the ai content if not on
             if device_ver >= Version("18.1") and not tweaks["AIGestalt"].enabled:
-                self.ui.aiEnablerContent.hide()
+                self.ui.aiEnablerContent.show()
             if device_ver < Version("18.2"):
                 self.pages[Page.Gestalt].setup_spoofedModelDrp_models()
 
